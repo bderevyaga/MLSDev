@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="Git">
+	<ul>
+		<li ng-repeat="response in responses">
+			Аватар: {{response.avatar_url}}<br />
+			Логин: <a href="" ng-click="user(response.url)"> {{response.login}}</a>
+		</li>
+	</ul>
+	
+	Аватар: {{userData.avatar_url}}<br />
+	Логин: {{userData.login}}<br />
+	Email: {{userData.email}}<br />
+	Имя: {{userData.name}}<br />
+	Список репозиторей:
+	<ul>
+		<li ng-repeat="reposData in reposesData"><a href="" ng-click="repos(reposData.url)">{{reposData.name}}</a></li>
+	</ul>	
+</div>
+
+	<script>
+	var app = angular.module('myApp', []);
+	app.controller('Git', function($scope, $http) {
+		$http.get('https://api.github.com/users', {  }).success(function(response)
+		{
+			$scope.responses = response;
+		});
+		$scope.user = function(url) {
+			$http.get(url, {  }).success(function(response)
+			{
+				$scope.userData = response;
+				$http.get(response.repos_url, {  }).success(function(response)
+				{
+					$scope.reposesData = response;
+				});
+			});
+		};
+		$scope.repos = function(url) {
+			alert(url);
+		};
+	});
+	</script> 
+</body>
+</html>
