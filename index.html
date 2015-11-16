@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+п»ї<!DOCTYPE html>
 <html>
 <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 <body>
@@ -6,16 +6,16 @@
 <div ng-app="myApp" ng-controller="Git">
 	<ul>
 		<li ng-repeat="response in responses">
-			Аватар: {{response.avatar_url}}<br />
-			Логин: <a href="" ng-click="user(response.url)"> {{response.login}}</a>
+			РђРІР°С‚Р°СЂ: {{response.avatar_url}}<br />
+			Р›РѕРіРёРЅ: <a href="" ng-click="user(response.url)"> {{response.login}}</a>
 		</li>
 	</ul>
 	
-	Аватар: {{userData.avatar_url}}<br />
-	Логин: {{userData.login}}<br />
+	РђРІР°С‚Р°СЂ: {{userData.avatar_url}}<br />
+	Р›РѕРіРёРЅ: {{userData.login}}<br />
 	Email: {{userData.email}}<br />
-	Имя: {{userData.name}}<br />
-	Список репозиторей:
+	РРјСЏ: {{userData.name}}<br />
+	РЎРїРёСЃРѕРє СЂРµРїРѕР·РёС‚РѕСЂРµР№:
 	<ul>
 		<li ng-repeat="reposData in reposesData"><a href="" ng-click="repos(reposData.url)">{{reposData.name}}</a></li>
 	</ul>	
