@@ -1,24 +1,67 @@
 ﻿<!DOCTYPE html>
 <html>
 <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/css/style.css">
 <body>
 
 <div ng-app="myApp" ng-controller="Git">
-	<ul>
-		<li ng-repeat="response in responses">
-			Аватар: {{response.avatar_url}}<br />
-			Логин: <a href="" ng-click="user(response.url)"> {{response.login}}</a>
-		</li>
-	</ul>
-	
-	Аватар: {{userData.avatar_url}}<br />
-	Логин: {{userData.login}}<br />
-	Email: {{userData.email}}<br />
-	Имя: {{userData.name}}<br />
-	Список репозиторей:
-	<ul>
-		<li ng-repeat="reposData in reposesData"><a href="" ng-click="repos(reposData.url)">{{reposData.name}}</a></li>
-	</ul>	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2 col-xs-4 col-sm-3" ng-repeat="response in responses">
+			    <a href="" class="thumbnail" ng-click="user(response.url)"> 
+			      <img src="{{response.avatar_url}}" class="img-rounded">
+			      <div class="caption">
+			      		{{response.login}}
+			      </div>
+			    </a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="thumbnail">
+					<img src="{{userData.avatar_url}}" class="img-rounded">
+					Логин: {{userData.login}}<br />
+					Email: {{userData.email}}<br />
+					Имя: {{userData.name}}<br />
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="panel panel-default">
+	  				<div class="panel-heading"><strong>Repositories</strong></div>
+					<div class="panel-body list">
+						<ul>
+							<li ng-repeat="reposData in reposesData">
+								<a href="" ng-click="repos(reposData.url)">{{reposData.name}}</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+	  				<div class="panel-heading"><strong>{{userLogin}}</strong></div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-6">
+							sdfsdf
+							</div>
+							<div class="col-md-6">
+							sdfsdf
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
 </div>
 
 	<script>
@@ -39,7 +82,10 @@
 			});
 		};
 		$scope.repos = function(url) {
-			alert(url);
+			$http.get(url, {  }).success(function(response)
+			{
+				$scope.userLogin = response.owner.login;
+			});
 		};
 	});
 	</script> 

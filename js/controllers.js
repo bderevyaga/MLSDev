@@ -1,5 +1,6 @@
 var app = angular.module('myApp', []);
 app.controller('Git', function($scope) {
+	$scope.showUsers = false;
 	$scope.loading = true;
 	$scope.users = false;
 	$http.get('https://api.github.com/users', {  }).success(function(responses)

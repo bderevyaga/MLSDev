@@ -1,0 +1,65 @@
+body {
+  background: #eee;
+}
+li {
+  list-style: none;
+}
+li a {
+  display: block;
+  border-top: 1px solid #e5e5e5;
+  padding: 10px;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+.panel-body.list {
+  padding: 0;
+}
+@-webkit-keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+.shows {
+  -webkit-animation-name: show;
+  animation-name: show;
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+}
+.hides {
+  -webkit-animation-name: hide;
+  animation-name: hide;
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+}
