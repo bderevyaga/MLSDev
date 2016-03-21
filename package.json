@@ -10,5 +10,11 @@
     "gulp-less": "^3.0.5",
     "gulp-livereload": "^3.8.1",
     "gulp-notify": "^2.2.0"
+  },
+  "dependencies": {
+    "gulp-bower": "0.0.13",
+    "gulp-less": "^3.0.5",
+    "gulp-livereload": "^3.8.1",
+    "wiredep": "^4.0.0"
   }
 }

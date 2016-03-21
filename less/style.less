@@ -1,47 +1,50 @@
 body {
-	background: #eee;
-}
-li{
-    list-style: none;
-    a {
-	  	display: block;
-	    border-top: 1px solid #e5e5e5;
-	    padding: 10px;
-   	}
+  background: #eee;
 }
 
-ul, li{
-	margin: 0;
-	padding: 0;
+li {
+  list-style: none;
+  a {
+    display: block;
+    border-top: 1px solid #e5e5e5;
+    padding: 10px;
+  }
 }
-.panel-body.list{
-    padding: 0;
+
+ul, li {
+  margin: 0;
+  padding: 0;
 }
+
+.panel-body.list {
+  padding: 0;
+}
+
 @keyframes show {
-	0% {
-    	opacity: 0;
-  	}
-  	100% {
-    	opacity: 1;
-  	}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes hide {
-	0% {
-    	opacity: 1;
-  	}
-  	100% {
-    	opacity: 0;
-    	display: none;
-  	}
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
 }
 
 .shows {
-    animation-name: show;
-    animation-duration: 5s;
+  animation-name: show;
+  animation-duration: 5s;
 }
 
 .hides {
-	animation-name: hide;
-    animation-duration: 5s;
+  animation-name: hide;
+  animation-duration: 5s;
 }
