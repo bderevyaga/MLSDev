@@ -5,84 +5,17 @@
 <!-- endbower -->
 <link rel="stylesheet" href="/css/style.css">
 <body>
-<div ng-app="myApp" ng-controller="Git">
+<div ng-app="myApp" ng-controller="MainController">
     <div class="container">
-        <div class="row">
-            <div class="col-md-2 col-xs-4 col-sm-3" ng-repeat="response in responses">
-                <a href="" class="thumbnail" ng-click="user(response.url)">
-                    <img src="{{response.avatar_url}}" class="img-rounded">
-                    <div class="caption">
-                        {{response.login}}
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <img src="{{userData.avatar_url}}" class="img-rounded">
-                    Логин: {{userData.login}}<br/>
-                    Email: {{userData.email}}<br/>
-                    Имя: {{userData.name}}<br/>
-                </div>
-            </div>
-            <div class="col-md-9">
-                <div class="panel panel-default">
-                    <div class="panel-heading"><strong>Repositories</strong></div>
-                    <div class="panel-body list">
-                        <ul>
-                            <li ng-repeat="reposData in reposesData">
-                                <a href="" ng-click="repos(reposData.url)">{{reposData.name}}</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading"><strong>{{userLogin}}</strong></div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                sdfsdf
-                            </div>
-                            <div class="col-md-6">
-                                sdfsdf
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div ng-view></div>
     </div>
 </div>
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
 <!-- endbower -->
-<script>
-    var app = angular.module('myApp', []);
-    app.controller('Git', function ($scope, $http) {
-        $http.get('https://api.github.com/users', {}).success(function (response) {
-            $scope.responses = response;
-        });
-        $scope.user = function (url) {
-            $http.get(url, {}).success(function (response) {
-                $scope.userData = response;
-                $http.get(response.repos_url, {}).success(function (response) {
-                    $scope.reposesData = response;
-                });
-            });
-        };
-        $scope.repos = function (url) {
-            $http.get(url, {}).success(function (response) {
-                $scope.userLogin = response.owner.login;
-            });
-        };
-    });
-</script>
+<script src="js/script.js"></script>
 </body>
 </html>

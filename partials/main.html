@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col-md-2 col-xs-4 col-sm-3" ng-repeat="response in responses">
+        <a class="thumbnail" ng-href="{{'#user/' + response.login}}">
+            <img ng-src="{{response.avatar_url}}" class="img-rounded">
+            <div class="caption">
+                {{response.login}}
+            </div>
+        </a>
+    </div>
+</div>

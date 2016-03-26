@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-md-3">
+        <div class="thumbnail">
+            <img ng-src="{{userData.avatar_url}}" class="img-rounded">
+            Логин: {{userData.login}}<br/>
+            Email: {{userData.email}}<br/>
+            Имя: {{userData.name}}<br/>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>Repositories</strong></div>
+            <div class="panel-body list">
+                <ul>
+                    <li ng-repeat="reposData in reposesData">
+                        <a ng-href="{{'#user/' + userId + '/' + reposData.name}}" >{{reposData.name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
